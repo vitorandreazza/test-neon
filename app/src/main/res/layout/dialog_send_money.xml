@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="moneyEditText"
+            type="com.example.neontest.ui.widgets.MoneyEditText" />
+
+        <variable
+            name="contact"
+            type="com.example.neontest.ui.transfer.ContactItem" />
+
+        <variable
+            name="viewModel"
+            type="com.example.neontest.ui.transfer.TransferViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/keyline6"
+        app:cardBackgroundColor="@color/green_600"
+        app:cardCornerRadius="@dimen/keyline6">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="340dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/keyline5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/keyline5" />
+
+            <ImageButton
+                android:id="@+id/button_close"
+                android:layout_width="@dimen/button_close_size"
+                android:layout_height="@dimen/button_close_size"
+                android:layout_marginTop="@dimen/keyline5"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_close_white_24dp"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageview_avatar"
+                android:layout_width="@dimen/avatar_size1"
+                android:layout_height="@dimen/avatar_size1"
+                android:layout_marginTop="@dimen/keyline5"
+                app:civ_border_color="@color/green_200"
+                app:civ_border_width="@dimen/avatar_border_size1"
+                app:civ_circle_background_color="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadImage="@{contact.avatarUrl}"
+                tools:src="@drawable/goku_face" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/keyline5"
+                android:gravity="center"
+                android:text="@{contact.name}"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageview_avatar"
+                tools:text="Son Goku" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha="@dimen/alpha_low_emphasis"
+                android:gravity="center"
+                android:text="@{contact.phone}"
+                android:textAppearance="?textAppearanceBody1"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_name"
+                tools:text="(11) 99999-9999" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_transfer_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/keyline5"
+                android:text="@string/send_money_label"
+                android:textAppearance="?textAppearanceBody1"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@id/textinputlayout_transfer_value"
+                app:layout_constraintStart_toStartOf="@id/textinputlayout_transfer_value"
+                app:layout_constraintTop_toBottomOf="@id/textview_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textinputlayout_transfer_value"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/white"
+                app:boxBackgroundMode="filled"
+                app:boxCornerRadiusBottomEnd="@dimen/keyline3"
+                app:boxCornerRadiusBottomStart="@dimen/keyline3"
+                app:boxCornerRadiusTopEnd="@dimen/keyline3"
+                app:boxCornerRadiusTopStart="@dimen/keyline3"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/textview_transfer_label">
+
+                <com.example.neontest.ui.widgets.MoneyEditText
+                    android:id="@+id/edittext_transfer_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/keyline3"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:textAppearance="?textAppearanceHeadline4"
+                    android:textColor="?colorSecondary" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_transfer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/keyline5"
+                android:layout_marginBottom="@dimen/keyline5"
+                android:onClick="@{() -> viewModel.transferMoney(contact, moneyEditText.value)}"
+                android:text="@string/common_send"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/textinputlayout_transfer_value" />
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/textinputlayout_transfer_value" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

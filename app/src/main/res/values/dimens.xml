@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyline0">2dp</dimen>
+    <dimen name="keyline1">4dp</dimen>
+    <dimen name="keyline2">6dp</dimen>
+    <dimen name="keyline3">8dp</dimen>
+    <dimen name="keyline4">12dp</dimen>
+    <dimen name="keyline5">16dp</dimen>
+    <dimen name="keyline6">24dp</dimen>
+
+    <dimen name="text0">10sp</dimen>
+    <dimen name="text1">12sp</dimen>
+    <dimen name="text2">14sp</dimen>
+    <dimen name="text3">16sp</dimen>
+    <dimen name="text4">20sp</dimen>
+    <dimen name="text5">24sp</dimen>
+    <dimen name="text6">34sp</dimen>
+    <dimen name="text7">48sp</dimen>
+    <dimen name="text8">60sp</dimen>
+    <dimen name="text9">96sp</dimen>
+
+    <dimen name="avatar_size0">32dp</dimen>
+    <dimen name="avatar_size1">72dp</dimen>
+    <dimen name="avatar_size2">160dp</dimen>
+    <dimen name="avatar_border_size1">2dp</dimen>
+    <dimen name="avatar_border_size2">6dp</dimen>
+
+    <dimen name="button_close_size">32dp</dimen>
+
+    <item name="alpha_low_emphasis" format="float" type="dimen">0.7</item>
+</resources>

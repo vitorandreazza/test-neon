@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.neontest.extensions.FloatExtensionsKt" />
+
+        <variable
+            name="contact"
+            type="com.example.neontest.ui.transfer.ContactItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:background="@drawable/gradient_background">
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:alpha="@dimen/alpha_low_emphasis"
+            android:background="@color/blue_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageview_avatar"
+            android:layout_width="@dimen/avatar_size1"
+            android:layout_height="@dimen/avatar_size1"
+            android:layout_marginTop="@dimen/keyline5"
+            android:layout_marginBottom="@dimen/keyline5"
+            app:civ_border_color="@color/green_200"
+            app:civ_border_width="@dimen/avatar_border_size1"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:loadImage="@{contact.avatarUrl}"
+            tools:src="@drawable/goku_face" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline5"
+            android:text="@{contact.name}"
+            android:textAppearance="?textAppearanceHeadline6"
+            app:layout_constraintBottom_toTopOf="@id/textview_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview_avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Son Goku" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="@dimen/alpha_low_emphasis"
+            android:text="@{contact.phone}"
+            android:textAppearance="?textAppearanceBody1"
+            app:layout_constraintBottom_toTopOf="@id/textview_transfer_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview_avatar"
+            app:layout_constraintStart_toStartOf="@id/textview_name"
+            app:layout_constraintTop_toBottomOf="@id/textview_name"
+            tools:text="(11) 99999-9999" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_transfer_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:alpha="@dimen/alpha_low_emphasis"
+            android:text="@{FloatExtensionsKt.toMoney(contact.transferValue, 2)}"
+            android:textAppearance="?textAppearanceBody2"
+            app:isVisible="@{contact.transferValue != 0f}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview_avatar"
+            app:layout_constraintStart_toStartOf="@id/textview_name"
+            app:layout_constraintTop_toBottomOf="@id/textview_email"
+            tools:text="R$ 120,00"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

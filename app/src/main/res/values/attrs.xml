@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MoneyEditText">
+        <attr name="maxLength" format="integer" />
+        <attr name="moneyFormat" format="enum">
+            <enum name="integer" value="0" />
+            <enum name="decimal" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

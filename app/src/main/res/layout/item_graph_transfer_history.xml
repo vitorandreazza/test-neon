@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.neontest.extensions.FloatExtensionsKt" />
+
+        <variable
+            name="contact"
+            type="com.example.neontest.ui.transfer.ContactItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/keyline3"
+        android:layout_marginEnd="@dimen/keyline3">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/imageview_avatar"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textview_transfer_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{FloatExtensionsKt.toMoney(contact.transferValue, 2)}"
+            android:textAppearance="?textAppearanceBody2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_line"
+            tools:text="R$ 120,00"
+            tools:visibility="visible" />
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/shape_circle"
+            android:translationZ="13dp"
+            app:layout_constraintBottom_toTopOf="@id/line"
+            app:layout_constraintEnd_toEndOf="@id/line"
+            app:layout_constraintStart_toStartOf="@id/line"
+            app:layout_constraintTop_toTopOf="@id/line" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/keyline3"
+            android:background="@drawable/gradient_accent"
+            app:layout_constraintBottom_toTopOf="@id/imageview_avatar"
+            app:layout_constraintEnd_toEndOf="@id/imageview_avatar"
+            app:layout_constraintStart_toStartOf="@id/imageview_avatar"
+            app:layout_constraintTop_toBottomOf="@id/textview_transfer_value"
+            app:layout_constraintVertical_bias="1" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageview_avatar"
+            android:layout_width="@dimen/avatar_size0"
+            android:layout_height="@dimen/avatar_size0"
+            app:civ_border_color="@color/green_200"
+            app:civ_border_width="@dimen/avatar_border_size1"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:loadImage="@{contact.avatarUrl}"
+            tools:src="@drawable/goku_face" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

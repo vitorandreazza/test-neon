@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.example.neontest.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_fragment_to_transferFragment"
+            app:destination="@id/transferFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_transferHistoryFragment"
+            app:destination="@id/transferHistoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="com.example.neontest.ui.transfer.TransferFragment"
+        android:label="TransferFragment"
+        tools:layout="@layout/fragment_transfer">
+        <action
+            android:id="@+id/action_transferFragment_to_sendMoneyDialog"
+            app:destination="@id/sendMoneyDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/sendMoneyDialog"
+        android:name="com.example.neontest.ui.transfer.SendMoneyDialog"
+        android:label="SendMoneyDialog"
+        tools:layout="@layout/dialog_send_money">
+
+        <argument
+            android:name="contact"
+            app:argType="com.example.neontest.ui.transfer.ContactItem" />
+
+    </dialog>
+    <fragment
+        android:id="@+id/transferHistoryFragment"
+        android:name="com.example.neontest.ui.history.TransferHistoryFragment"
+        android:label="TransferHistoryFragment"
+        tools:layout="@layout/fragment_transfer_history"/>
+
+</navigation>

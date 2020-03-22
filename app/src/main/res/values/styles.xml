@@ -1,0 +1,39 @@
+<resources>
+
+    <style name="Base.Theme.Neon" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/blue_500</item>
+        <item name="colorPrimaryVariant">@color/blue_900</item>
+        <item name="colorSecondary">@color/green_300</item>
+
+        <item name="colorAccent">?colorSecondary</item>
+        <item name="colorPrimaryDark">?colorPrimaryVariant</item>
+
+        <item name="colorSurface">@color/blue_500</item>
+
+        <item name="colorOnPrimary">@color/green_300</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSurface">@color/green_300</item>
+        <item name="colorOnBackground">@color/white</item>
+        <item name="android:textColor">?colorOnSurface</item>
+
+        <item name="materialButtonStyle">@style/Widget.Neon.Button</item>
+    </style>
+
+    <style name="Theme.Neon" parent="Base.Theme.Neon" />
+
+    <style name="Widget.Neon.Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?colorSecondary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">?textAppearanceHeadline6</item>
+        <item name="textAllCaps">true</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:paddingTop">@dimen/keyline4</item>
+        <item name="android:paddingBottom">@dimen/keyline4</item>
+    </style>
+
+    <style name="Widget.Neon.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+<!--        <item name="titleTextAppearance">?textAppearanceHeadline6</item>-->
+    </style>
+
+</resources>

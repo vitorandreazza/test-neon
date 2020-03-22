@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">NeonTest</string>
+    <string name="home_send_money">Enviar dinheiro</string>
+    <string name="common_transfer_history">Histórico de envios</string>
+    <string name="fake_email">vitorferrari@email.com</string>
+    <string name="fake_name">Vitor Ferrari</string>
+    <string name="message_transfer_success">Transferência realizada com sucesso</string>
+    <string name="message_transfer_error">Ocorreu um erro ao realizar a transferência</string>
+    <string name="error_transfer_value_nedeed">É necessário uma valor para transferência</string>
+    <string name="send_money_label">Valor a enviar:</string>
+    <string name="common_send">Enviar</string>
+    <string name="title_transfer">Enviar Dinheiro</string>
+    <string name="title_transfer_history">Histórico de envios</string>
+    <string name="error_getting_transfers">Erro ao recuperar as transfêrencias</string>
+</resources>
